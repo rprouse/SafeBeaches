@@ -9,8 +9,8 @@
     @foreach (var beach in Model)
     {
       var reading = beach.GetLatestReading();
-      var safe = reading == null ? "list-group-item-warning" : (reading.Safe ? "list-group-item-success" : "list-group-item-danger");
-      var icon = reading == null ? "glyphicon-question-sign" : (reading.Safe ? "glyphicon-ok-circle" : "glyphicon-ban-circle");
+      var safe = reading.Safe ? "list-group-item-success" : "list-group-item-danger";
+      var icon = reading.Safe ? "glyphicon-ok-circle" : "glyphicon-ban-circle";
       <a href="#" class="list-group-item @safe">
         <div class="row">
           <div class="col-xs-8">

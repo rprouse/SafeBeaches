@@ -20,7 +20,8 @@ namespace SafeBeaches.Models
 
         public Reading GetLatestReading()
         {
-            return Readings.OrderByDescending(r => r.Date).FirstOrDefault();
+            var reading = Readings.OrderByDescending(r => r.Date).FirstOrDefault();
+            return reading ?? new Reading {Date = DateTime.Now, Safe = false};
         }
     }
 }
