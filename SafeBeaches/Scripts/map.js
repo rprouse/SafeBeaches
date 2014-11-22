@@ -25,7 +25,7 @@ for (var i = 0 ; i < unsafe.length; i++) {
 //create the style
 var safeStyle = new ol.style.Style({
   image: new ol.style.Icon(({
-    anchor: [0.5, 0.5],
+    anchor: [0.5, 1.0],
     anchorXUnits: 'fraction',
     anchorYUnits: 'fraction',
     opacity: 0.75,
@@ -35,7 +35,7 @@ var safeStyle = new ol.style.Style({
 
 var unsafeStyle = new ol.style.Style({
   image: new ol.style.Icon(({
-    anchor: [0.5, 0.5],
+    anchor: [0.5, 1.0],
     anchorXUnits: 'fraction',
     anchorYUnits: 'fraction',
     opacity: 0.75,
