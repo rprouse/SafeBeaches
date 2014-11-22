@@ -38,7 +38,7 @@ namespace SafeBeaches.Data
         {
             base.Seed(context);
 
-#if DEBUG
+//#if DEBUG
             if (!context.Beaches.Any())
             {
                 var beach = new Beach
@@ -185,7 +185,7 @@ namespace SafeBeaches.Data
             {
                 Console.WriteLine(exception);
             }
-#endif
+//#endif
         }
 
         #endregion
