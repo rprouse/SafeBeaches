@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Spatial;
+using System.Linq;
 
 namespace SafeBeaches.Models
 {
@@ -16,5 +17,10 @@ namespace SafeBeaches.Models
         public int WaterBodyId { get; set; }
 
         public ICollection<Reading> Readings { get; set; }
+
+        public Reading GetLatestReading()
+        {
+            return Readings.OrderByDescending(r => r.Date).FirstOrDefault();
+        }
     }
 }

@@ -1,23 +1,16 @@
-﻿@section scripts
+﻿@model IQueryable<SafeBeaches.Models.Beach>
+
+@section scripts
 {
-  <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var proj = new ol.Projection("EPSG:4326");
-    var map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      view: new ol.View({
-        zoom: 12
-      })
-    });
-    var center = new ol.LonLat(43.266749, -79.872631);
-    map.setCenter(center.transform(proj, map.getProjectionObject()));
-  </script>
 }
 
-
-<div class="map" id="map"></div>
+<div class="beaches">
+  <div class="list-group">
+    @foreach (var beach in Model)
+    {
+      var reading = beach.GetLatestReading();
+      var safe = reading == null ? "list-group-item-warning" : (reading.Safe ? "list-group-item-success" : "list-group-item-danger");
+      <a href="#" class="list-group-item @safe">@beach.Name</a>
+    }
+  </div>
+</div>

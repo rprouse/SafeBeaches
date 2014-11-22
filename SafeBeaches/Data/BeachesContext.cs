@@ -15,7 +15,6 @@ namespace SafeBeaches.Data
         }
 
         public DbSet<Beach> Beaches { get; set; }
-        public DbSet<WaterBody> WaterBodies { get; set; }
         public DbSet<Reading> Readings { get; set; }
     }
 }

@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Ajax.Utilities;
 using SafeBeaches.Models;
 
 namespace SafeBeaches.Data
 {
     public interface IBeachesRepository
     {
-        IQueryable<WaterBody> GetWaterBodies();
         IQueryable<Beach> GetBeaches();
         IQueryable<Reading> GetReadingsForBeach( int beachId );
 
@@ -28,11 +23,6 @@ namespace SafeBeaches.Data
         }
 
         #region Implementation of IBeachesRepository
-
-        public IQueryable<WaterBody> GetWaterBodies()
-        {
-            return _context.WaterBodies.Include( "Beaches" );
-        }
 
         public IQueryable<Beach> GetBeaches()
         {

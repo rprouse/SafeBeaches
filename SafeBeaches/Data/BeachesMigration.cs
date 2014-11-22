@@ -34,190 +34,156 @@ namespace SafeBeaches.Data
         ///             called and the Seed method defined in the initializer should be used instead.
         /// </remarks>
         /// <param name="context">Context to be used for updating seed data. </param>
-        protected override void Seed( BeachesContext context )
+        protected override void Seed(BeachesContext context)
         {
-            base.Seed( context );
+            base.Seed(context);
 
 #if DEBUG
-            if ( !context.WaterBodies.Any() )
+            if (!context.Beaches.Any())
             {
-                var body = new WaterBody
+                var beach = new Beach
                 {
-                    Name = "Lake Ontario",
-                    Beaches =
-                        new List<Beach>
+                    Name = "Beach Boulevard",
+                    Location = DbGeography.FromText("POINT(43.277482 -79.780652)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
                         {
-                            new Beach
-                            {
-                                Name = "Beach Boulevard",
-                                Location = DbGeography.FromText( "POINT(43.277482 -79.780652)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            },
-                            new Beach
-                            {
-                                Name = "Van Wagners",
-                                Location = DbGeography.FromText( "POINT(43.259482 -79.765117)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            },
-                            new Beach
-                            {
-                                Name = "Confederation Park",
-                                Location = DbGeography.FromText( "POINT(43.250981 -79.754903)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            },
+                            new Reading {Date = new DateTime(2014, 06, 10), Safe = true},
+                            new Reading {Date = new DateTime(2014, 07, 10), Safe = true},
+                            new Reading {Date = new DateTime(2014, 08, 10), Safe = true},
+                            new Reading {Date = new DateTime(2014, 09, 10), Safe = true},
                         }
                 };
-                context.WaterBodies.Add( body );
+                context.Beaches.Add(beach);
 
-                body = new WaterBody
+                beach = new Beach
                 {
-                    Name = "Hamilton Harbour",
-                    Beaches =
-                        new List<Beach>
+                    Name = "Van Wagners",
+                    Location = DbGeography.FromText("POINT(43.259482 -79.765117)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
                         {
-                            new Beach
-                            {
-                                Name = "Bayfront Park Beach",
-                                Location = DbGeography.FromText( "POINT(43.271584 -79.874634)" ),
-                                Safe = false,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = false},
-                                    }
-                            },
-                            new Beach
-                            {
-                                Name = "Pier 4 Beach",
-                                Location = DbGeography.FromText( "POINT(43.273646 -79.867682)" ),
-                                Safe = false,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = false},
-                                    }
-                            }
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
                         }
                 };
-                context.WaterBodies.Add( body );
+                context.Beaches.Add(beach);
 
-                body = new WaterBody
+                beach = new Beach
                 {
-                    Name = "Christie Reservoir",
-                    Beaches =
-                        new List<Beach>
+                    Name = "Confederation Park",
+                    Location = DbGeography.FromText("POINT(43.250981 -79.754903)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
                         {
-                            new Beach
-                            {
-                                Name = "Christie Conservation",
-                                Location = DbGeography.FromText( "POINT(43.280835 -80.022795)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            }
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
                         }
                 };
-                context.WaterBodies.Add( body );
+                context.Beaches.Add(beach);
 
-                body = new WaterBody
+                beach = new Beach
                 {
-                    Name = "Lake Niapenco",
-                    Beaches =
-                        new List<Beach>
+                    Name = "Bayfront Park Beach",
+                    Location = DbGeography.FromText("POINT(43.271584 -79.874634)"),
+                    Safe = false,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
                         {
-                            new Beach
-                            {
-                                Name = "Binbrook Conservation",
-                                Location = DbGeography.FromText( "POINT(43.101739 -79.833129)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = false},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            }
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = false},
                         }
                 };
-                context.WaterBodies.Add( body );
+                context.Beaches.Add(beach);
 
-                body = new WaterBody
+                beach = new Beach
                 {
-                    Name = "Valens Reservoir",
-                    Beaches =
-                        new List<Beach>
+                    Name = "Pier 4 Beach",
+                    Location = DbGeography.FromText("POINT(43.273646 -79.867682)"),
+                    Safe = false,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
                         {
-                            new Beach
-                            {
-                                Name = "Valens Conservation",
-                                Location = DbGeography.FromText( "POINT(43.383655 -80.139379)" ),
-                                Safe = true,
-                                LastReadingDate = new DateTime( 2014, 09, 10 ),
-                                Readings =
-                                    new List<Reading>
-                                    {
-                                        new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
-                                        new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
-                                    }
-                            }
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = false},
                         }
                 };
-                context.WaterBodies.Add( body );
+                context.Beaches.Add(beach);
+
+                beach = new Beach
+                {
+                    Name = "Christie Conservation",
+                    Location = DbGeography.FromText("POINT(43.280835 -80.022795)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
+                        {
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
+                        }
+                };
+                context.Beaches.Add(beach);
+
+                beach = new Beach
+                {
+                    Name = "Binbrook Conservation",
+                    Location = DbGeography.FromText("POINT(43.101739 -79.833129)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
+                        {
+                            new Reading {Date = new DateTime( 2014, 06, 10 ), Safe = false},
+                            new Reading {Date = new DateTime( 2014, 07, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 08, 10 ), Safe = true},
+                            new Reading {Date = new DateTime( 2014, 09, 10 ), Safe = true},
+                        }
+                };
+                context.Beaches.Add(beach);
+
+                beach = new Beach
+                {
+                    Name = "Valens Conservation",
+                    Location = DbGeography.FromText("POINT(43.383655 -80.139379)"),
+                    Safe = true,
+                    LastReadingDate = new DateTime(2014, 09, 10),
+                    Readings =
+                        new List<Reading>
+                    {
+                        new Reading {Date = new DateTime(2014, 06, 10), Safe = true},
+                        new Reading {Date = new DateTime(2014, 07, 10), Safe = true},
+                        new Reading {Date = new DateTime(2014, 08, 10), Safe = true},
+                        new Reading {Date = new DateTime(2014, 09, 10), Safe = true},
+                    }
+                };
+                context.Beaches.Add(beach);
             }
             try
             {
                 context.SaveChanges();
             }
-            catch ( Exception exception )
+            catch (Exception exception)
             {
-                Console.WriteLine( exception );
+                Console.WriteLine(exception);
             }
 #endif
         }
