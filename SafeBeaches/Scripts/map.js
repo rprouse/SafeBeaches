@@ -63,7 +63,14 @@ var map = new ol.Map({
     unsafeLayer
   ],
   view: new ol.View({
-    center: ol.proj.transform([-79.90, 43.28], 'EPSG:4326', 'EPSG:3857'),
-    zoom: 12
+    //center: ol.proj.transform([-79.90, 43.28], 'EPSG:4326', 'EPSG:3857'),
+    zoom: 12,
+    minZoom: 10
   })
 });
+
+var setCenter = function(latitude, longitude) {
+  map.getView().setCenter(ol.proj.transform([latitude, longitude], 'EPSG:4326', 'EPSG:3857'));
+}
+
+setCenter(-79.90, 43.28);
