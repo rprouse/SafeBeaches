@@ -10,7 +10,15 @@
     {
       var reading = beach.GetLatestReading();
       var safe = reading == null ? "list-group-item-warning" : (reading.Safe ? "list-group-item-success" : "list-group-item-danger");
-      <a href="#" class="list-group-item @safe">@beach.Name</a>
+      var icon = reading == null ? "glyphicon-question-sign" : (reading.Safe ? "glyphicon-ok-circle" : "glyphicon-ban-circle");
+      <a href="#" class="list-group-item @safe">
+        <div class="row">
+          <div class="col-xs-8">
+            <h4 class="list-group-item-heading"><span class="glyphicon @icon" aria-hidden="true"></span> @beach.Name</h4>
+          </div>
+          <div class="col-xs-4"><p class="list-group-item-text text-right">@reading.Date.ToShortDateString()</p></div>
+        </div>
+      </a>
     }
   </div>
 </div>
