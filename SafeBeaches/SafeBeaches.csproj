@@ -30,6 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>App_Data\SafeBeachesApi.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -191,6 +192,7 @@
     <Compile Include="Controllers\BeachesController.cs" />
     <Compile Include="Data\BeachesContext.cs" />
     <Compile Include="Data\BeachesMigration.cs" />
+    <Compile Include="Data\DbGeographyConverter.cs" />
     <Compile Include="Data\IBeachesRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

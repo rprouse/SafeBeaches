@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity.Spatial;
 using System.Linq;
+using Newtonsoft.Json;
+using SafeBeaches.Data;
 
 namespace SafeBeaches.Models
 {
@@ -9,6 +11,8 @@ namespace SafeBeaches.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [JsonConverter( typeof( DbGeographyConverter ) )]
         public DbGeography Location { get; set; }
 
         public bool Safe { get; set; }
