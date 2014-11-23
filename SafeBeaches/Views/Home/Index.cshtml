@@ -31,23 +31,29 @@
   <script src="~/Scripts/map.js"></script>
 }
 
-<div class="beaches">
-  <div id="map" class="map"></div>
-
-  <div class="list-group">
-    @foreach (var beach in Model)
-    {
-      var reading = beach.GetLatestReading();
-      var safe = reading.Safe ? "list-group-item-success" : "list-group-item-danger";
-      var icon = reading.Safe ? "glyphicon-ok-circle" : "glyphicon-ban-circle";
-      <a href="#" id="@beach.Id" class="list-group-item @safe">
-        <div class="row">
-          <div class="col-xs-8">
-            <h4 class="list-group-item-heading"><span class="glyphicon @icon" aria-hidden="true"></span> @beach.Name</h4>
+<div class="beaches row">
+  <div class="col-md-8">
+    <div id="map" class="map"></div>  
+  </div>
+  <div class="col-md-4">
+    <div class="list-group">
+      @foreach (var beach in Model)
+      {
+        var reading = beach.GetLatestReading();
+        var safe = reading.Safe ? "list-group-item-success" : "list-group-item-danger";
+        var icon = reading.Safe ? "glyphicon-ok-circle" : "glyphicon-ban-circle";
+        <a href="#" id="@beach.Id" class="list-group-item @safe">
+          <div class="row">
+            <div class="col-xs-8 visible-lg">
+              <h4 class="list-group-item-heading"><span class="glyphicon @icon" aria-hidden="true"></span> @beach.Name</h4>
+            </div>
+            <div class="col-xs-4 visible-lg"><p class="list-group-item-text text-right">@reading.Date.ToShortDateString()</p></div>
+            <div class="col-xs-12 hidden-lg">
+              <h4 class="list-group-item-heading"><span class="glyphicon @icon" aria-hidden="true"></span> @beach.Name</h4>
+            </div>
           </div>
-          <div class="col-xs-4"><p class="list-group-item-text text-right">@reading.Date.ToShortDateString()</p></div>
-        </div>
-      </a>
-    }
+        </a>
+      }
+    </div>  
   </div>
 </div>
