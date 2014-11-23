@@ -65,7 +65,8 @@ var map = new ol.Map({
   view: new ol.View({
     //center: ol.proj.transform([-79.90, 43.28], 'EPSG:4326', 'EPSG:3857'),
     zoom: 12,
-    minZoom: 10
+    minZoom: 10,
+    maxZoom: 15
   })
 });
 
@@ -73,4 +74,4 @@ var setCenter = function(latitude, longitude) {
   map.getView().setCenter(ol.proj.transform([latitude, longitude], 'EPSG:4326', 'EPSG:3857'));
 }
 
-setCenter(-79.90, 43.28);
+setCenter(-79.83, 43.27);

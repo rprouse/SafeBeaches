@@ -207,6 +207,7 @@
     <Content Include="Content\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Content\logo.png" />
     <Content Include="Content\no_swim.png" />
     <Content Include="Content\swim.png" />
     <Content Include="favicon.ico" />
